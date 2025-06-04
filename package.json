@@ -1,0 +1,110 @@
+{
+  "name": "mui-dialog",
+  "description": "A reusable dialog component for React applications built with Material-UI (MUI).",
+  "author": "Bikash Das <bikashdas0108@gmail.com> (https://github.com/bikashdas0108)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viplatform/mui-dialog/issues"
+  },
+  "homepage": "https://github.com/viplatform/mui-dialog#readme",
+  "version": "1.0.11",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/mui-dialog.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/mui-dialog.es.js",
+      "default": "./dist/mui-dialog.es.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viplatform/mui-dialog.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "mui",
+    "javascript",
+    "material"
+  ],
+  "scripts": {
+    "build": "yarn lint && vite build",
+    "lint": "tsc --noEmit && eslint",
+    "lint:fix": "yarn lint --fix",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test": "vitest",
+    "release": "standard-version",
+    "coverage": "vitest run --coverage",
+    "prepare": "husky",
+    "prepublishOnly": "yarn build"
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "yarn build"
+    },
+    "skip": {
+      "changelog": true
+    }
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^7.0.0",
+    "@types/react": "^18.0.0 || ^19.0.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/lab": "^7.0.0-beta.12",
+    "@mui/material": "^7.0.0",
+    "@types/react": "^18.0.0 || ^19.0.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.0.2",
+    "@storybook/addon-actions": "^8.6.12",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-links": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/lodash": "^4.17.17",
+    "@types/node": "^22.14.1",
+    "@types/react-dom": "^19.1.5",
+    "@viclafouch/eslint-config-viclafouch": "4.22.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.24.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "sass-embedded": "^1.89.0",
+    "standard-version": "^9.5.0",
+    "storybook": "^8.6.12",
+    "terser": "^5.39.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.6",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.1"
+  }
+}
