@@ -1,28 +1,28 @@
 {
-  "name": "mui-dialog",
-  "description": "A reusable dialog component for React applications built with Material-UI (MUI).",
+  "name": "mui-drawer",
+  "description": "A reusable drawer component for React applications built with Material-UI (MUI).",
   "author": "Bikash Das <bikashdas0108@gmail.com> (https://github.com/bikashdas0108)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/viplatform/mui-dialog/issues"
+    "url": "https://github.com/viplatform/mui-drawer/issues"
   },
-  "homepage": "https://github.com/viplatform/mui-dialog#readme",
-  "version": "1.0.11",
+  "homepage": "https://github.com/viplatform/mui-drawer#readme",
+  "version": "1.0.0",
   "files": [
     "dist"
   ],
-  "main": "./dist/mui-dialog.es.js",
+  "main": "./dist/mui-drawer.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/mui-dialog.es.js",
-      "default": "./dist/mui-dialog.es.js"
+      "import": "./dist/mui-drawer.es.js",
+      "default": "./dist/mui-drawer.es.js"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viplatform/mui-dialog.git"
+    "url": "git+https://github.com/viplatform/mui-drawer.git"
   },
   "keywords": [
     "react",
@@ -71,6 +71,7 @@
     "@mui/lab": "^7.0.0-beta.12",
     "@mui/material": "^7.0.0",
     "@types/react": "^18.0.0 || ^19.0.0",
+    "classnames": "^2.5.1",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },

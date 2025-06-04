@@ -32,9 +32,9 @@ export default defineConfig({
     lib: {
       formats: ["es"],
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "mui-dialog",
+      name: "mui-drawer",
       fileName: (format) => {
-        return `mui-dialog.${format}.js`;
+        return `mui-drawer.${format}.js`;
       },
     },
     rollupOptions: {
