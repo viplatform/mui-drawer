@@ -124,3 +124,62 @@ const MyComponent = () => {
 | `tertiaryCtaStartIcon`    | `React.ReactNode` | No       | -                                               | Icon for tertiary button                |
 
 ## Responsive Design
+
+The drawer component is fully responsive and adapts to different screen sizes:
+
+- On mobile devices (max-width: 600px):
+  - Takes full width and height
+  - Stacks action buttons vertically
+  - Adjusts content height based on header and footer presence
+  - Optimizes spacing for different numbers of action buttons
+
+## Development
+
+### Local Setup
+
+```bash
+# Install dependencies
+yarn install
+
+# Build package
+yarn build
+```
+
+### Local Development with yarn link
+
+To test the package in another project locally:
+
+1. In the `mui-drawer` directory:
+
+```bash
+# Build the package
+yarn build
+
+# Create a global symlink
+yarn link
+```
+
+2. In your project directory:
+
+```bash
+# Link to the package
+yarn link "mui-drawer"
+```
+
+3. To unlink when done:
+
+```bash
+# In your project directory
+yarn unlink "mui-drawer"
+
+# In the mui-drawer directory
+yarn unlink
+```
+
+Note: After making changes to the package, you'll need to:
+
+1. Rebuild the package (`yarn build`)
+
+## License
+
+© [Virtual Internships]
