@@ -23,6 +23,7 @@ import "./muiDrawer.scss";
 type DrawerProps = InformationDrawerProps | InputDrawerProps;
 
 const MuiDrawer = (props: DrawerProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [actionsMaxWidth, setActionsMaxWidth] = useState<string>("50%");
   const drawerRef = useRef<HTMLDivElement>(null);
   const parentTheme = useTheme();
@@ -112,13 +113,16 @@ const MuiDrawer = (props: DrawerProps) => {
     return () => clearTimeout(timer);
   }, [drawerRef.current]);
 
+  useEffect(() => setIsOpen(open), [open]);
+
   return (
     <ThemeProvider theme={currentTheme}>
       <Drawer
         className={classNames("vi-drawer", wrapperClassName)}
-        open={open}
+        open={isOpen}
         anchor={anchor}
         onClose={handleClose}
+        transitionDuration={300}
         {...rest}
       >
         <div ref={drawerRef} style={{ width, maxWidth }} className="h-fill">
