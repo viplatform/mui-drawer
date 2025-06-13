@@ -1,4 +1,28 @@
 .vi-drawer {
+  .h-fill {
+    height: -webkit-fill-available;
+  }
+
+  .d-f {
+    display: flex;
+  }
+
+  .ai-c {
+    align-items: center;
+  }
+
+  .jc-sb {
+    justify-content: space-between;
+  }
+
+  .fd-col {
+    flex-direction: column;
+  }
+
+  .gap-8 {
+    gap: 8px;
+  }
+
   .MuiDrawer-paper {
     overflow-y: hidden;
     max-width: 100%;
