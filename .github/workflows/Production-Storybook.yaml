@@ -14,8 +14,7 @@ jobs:
       contents: write
       pull-requests: write
     name: Build and Publish Storybook
-    runs-on:
-      labels: [self-hosted, dev-image-builder]
+    runs-on: ubuntu-latest
     env:
       CONFIG_TYPE: "PRODUCTION"
 
