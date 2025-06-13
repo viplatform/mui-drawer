@@ -1,0 +1,50 @@
+name: MUI-Drawer-Storybook-Publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+    name: Build and Publish Storybook
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify slack pipeline started
+        uses: voxmedia/github-action-slack-notify-build@v1
+        id: slack
+        with:
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          status: MUI-DRAWER STORYBOOK BUILD & DEPLOY STARTED
+          color: warning
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Nodejs, Install Dependencies, and Build Storybook
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.9"
+
+      - run: yarn install --immutable # Use --immutable for CI/CD environments
+
+      - run: yarn build-storybook
+
+      - name: Install aws-cli
+        uses: unfor19/install-aws-cli-action@v1
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-1

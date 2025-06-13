@@ -6,7 +6,7 @@ import {
   TERTIARY_CTA_TYPES,
 } from "./muiDrawer.types";
 
-interface IActions {
+export interface IActions {
   primaryCtaTitle?: string;
   secondaryCtaTitle?: string;
   tertiaryCtaTitle?: string;

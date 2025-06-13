@@ -129,7 +129,7 @@ const MuiDrawer = (props: DrawerProps) => {
           {title && (
             <div className="vi-drawer-title">
               <div className="d-f ai-c jc-sb">
-                <div className="d-f flex-dir-col gap-8">
+                <div className="d-f fd-col gap-8">
                   <Typography variant="semiBoldLabelL">{title}</Typography>
                   {subTitle && (
                     <Typography variant="subtextM">{subTitle}</Typography>
