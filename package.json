@@ -52,9 +52,9 @@
     }
   },
   "peerDependencies": {
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
-    "@mui/material": "^7.0.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.0.2",
     "@types/react": "^18.0.0 || ^19.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
@@ -65,11 +65,11 @@
     }
   },
   "dependencies": {
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.0",
     "@mui/lab": "^7.0.0-beta.12",
-    "@mui/material": "^7.0.0",
+    "@mui/material": "^7.0.2",
     "@types/react": "^18.0.0 || ^19.0.0",
     "classnames": "^2.5.1",
     "react": "^18.0.0 || ^19.0.0",
@@ -78,6 +78,8 @@
   "devDependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/lab": "^7.0.0-beta.12",
     "@mui/material": "^7.0.2",
     "@storybook/addon-actions": "^8.6.12",
     "@storybook/addon-essentials": "^8.6.12",
@@ -91,6 +93,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/lodash": "^4.17.17",
     "@types/node": "^22.14.1",
+    "@types/react": "^18.0.0 || ^19.0.0",
     "@types/react-dom": "^19.1.5",
     "@viclafouch/eslint-config-viclafouch": "4.22.0",
     "@vitejs/plugin-react": "^4.3.4",
