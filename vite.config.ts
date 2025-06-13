@@ -59,22 +59,24 @@ export default defineConfig({
   plugins: [
     peerDepsExternal(),
     react(),
-    dts({
-      rollupTypes: false,
-      exclude: ["/**/*.stories.tsx", "/**/*.test.tsx"],
-      insertTypesEntry: true,
-      outDir: "dist",
-      include: ["src/**/*.ts", "src/**/*.tsx"],
-      staticImport: true,
-      compilerOptions: {
-        baseUrl: ".",
-        paths: {
-          "@assets/*": ["src/assets/*"],
-          "@shared/*": ["src/shared/*"],
-          "@components/*": ["src/components/*"],
+    // Only include dts plugin when not building Storybook
+    !process.env.STORYBOOK &&
+      dts({
+        rollupTypes: false,
+        exclude: ["/**/*.stories.tsx", "/**/*.test.tsx"],
+        insertTypesEntry: true,
+        outDir: "dist",
+        include: ["src/**/*.ts", "src/**/*.tsx"],
+        staticImport: true,
+        compilerOptions: {
+          baseUrl: ".",
+          paths: {
+            "@assets/*": ["src/assets/*"],
+            "@shared/*": ["src/shared/*"],
+            "@components/*": ["src/components/*"],
+          },
         },
-      },
-    }),
+      }),
     cssInjectedByJsPlugin(),
-  ],
+  ].filter(Boolean),
 });
