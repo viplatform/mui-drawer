@@ -14,6 +14,35 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  viteFinal: async (config) => {
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve?.alias,
+        },
+      },
+      optimizeDeps: {
+        ...config.optimizeDeps,
+        include: [...(config.optimizeDeps?.include ?? [])],
+        esbuildOptions: {
+          jsx: "automatic",
+        },
+      },
+      build: {
+        ...config.build,
+        commonjsOptions: {
+          include: [/node_modules/],
+          transformMixedEsModules: true,
+        },
+      },
+      esbuild: {
+        ...config.esbuild,
+        jsx: "automatic",
+      },
+    };
+  },
 };
 
 export default config;
