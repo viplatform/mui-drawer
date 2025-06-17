@@ -1,23 +1,38 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import dts from "vite-plugin-dts";
-import { defineConfig } from "vitest/config";
-import react from "@vitejs/plugin-react";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+import { fileURLToPath } from "url";
+import { dirname, resolve } from "path";
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const path = require("node:path");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  test: {
-    environment: "jsdom",
-    globals: true,
-  },
+  plugins: [
+    react({
+      jsxRuntime: "automatic",
+      jsxImportSource: "react",
+    }),
+    peerDepsExternal(),
+    dts({
+      rollupTypes: false,
+      exclude: ["/**/*.stories.tsx", "/**/*.test.tsx"],
+      insertTypesEntry: true,
+      outDir: "dist",
+      include: ["src/**/*.ts", "src/**/*.tsx"],
+      staticImport: true,
+    }),
+    cssInjectedByJsPlugin(),
+  ].filter(Boolean),
   resolve: {
     alias: {
-      "@assets": path.resolve(__dirname, "./src/assets"),
-      "@shared": path.resolve(__dirname, "./src/shared"),
-      "@components": path.resolve(__dirname, "./src/components"),
+      "@assets": resolve(__dirname, "./src/assets"),
+      "@shared": resolve(__dirname, "./src/shared"),
+      "@components": resolve(__dirname, "./src/components"),
+      "@": resolve(__dirname, "./src"),
     },
   },
   build: {
@@ -31,8 +46,8 @@ export default defineConfig({
     },
     lib: {
       formats: ["es"],
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: "mui-drawer",
+      entry: resolve(__dirname, "src/muiDrawer/index.tsx"),
+      name: "MuiDrawer",
       fileName: (format) => {
         return `mui-drawer.${format}.js`;
       },
@@ -40,43 +55,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         sourcemapExcludeSources: true,
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === "style.css") return "mui-drawer.css";
+          return assetInfo.name;
+        },
         globals: {
           react: "React",
-          "react/jsx-runtime": "jsxRuntime",
+          "react-dom": "ReactDOM",
+          "@mui/material": "MaterialUI",
         },
       },
-      external: [
-        "react",
-        "react-dom",
-        "@mui/material",
-        "@mui/icons-material",
-        "@mui/lab",
-        "@emotion/react",
-        "@emotion/styled",
-      ],
     },
   },
-  plugins: [
-    peerDepsExternal(),
-    react(),
-    // Only include dts plugin when not building Storybook
-    !process.env.STORYBOOK &&
-      dts({
-        rollupTypes: false,
-        exclude: ["/**/*.stories.tsx", "/**/*.test.tsx"],
-        insertTypesEntry: true,
-        outDir: "dist",
-        include: ["src/**/*.ts", "src/**/*.tsx"],
-        staticImport: true,
-        compilerOptions: {
-          baseUrl: ".",
-          paths: {
-            "@assets/*": ["src/assets/*"],
-            "@shared/*": ["src/shared/*"],
-            "@components/*": ["src/components/*"],
-          },
-        },
-      }),
-    cssInjectedByJsPlugin(),
-  ].filter(Boolean),
 });

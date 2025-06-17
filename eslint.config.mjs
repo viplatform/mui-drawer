@@ -21,6 +21,7 @@ export default [
       "**/dist/**",
       "**/docs/build/**",
       "docs/.docusaurus/**/**",
+      "**/storybook-static/**",
     ],
   },
 ];

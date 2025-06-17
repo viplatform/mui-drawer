@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import MuiDrawer from "./index";
+import MuiDrawer from ".";
 import {
   DRAWER_TYPES,
   INFORMATION_SUBTYPES,
