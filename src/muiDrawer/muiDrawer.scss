@@ -2,6 +2,11 @@
   .h-fill {
     height: -webkit-fill-available;
   }
+  .safari-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
   .d-f {
     display: flex;
