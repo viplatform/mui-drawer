@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { mergeConfig } from "vite";
 import { resolve } from "path";
 
 const config: StorybookConfig = {
@@ -20,10 +21,14 @@ const config: StorybookConfig = {
         ? "http://127.0.0.1:8080"
         : process.env.ASSET_BASE_URL;
 
-    return {
-      ...config,
+    return mergeConfig(config, {
       define: {
         "process.env.REACT_APP_ASSET_BASE_URL": JSON.stringify(assetBaseUrl),
+      },
+      resolve: {
+        alias: {
+          "@": resolve(__dirname, "../src"),
+        },
       },
       build: {
         rollupOptions: {
@@ -37,15 +42,11 @@ const config: StorybookConfig = {
         },
       },
       optimizeDeps: {
-        include: ["react", "react-dom", "react/jsx-runtime"],
+        include: ["react", "react-dom"],
         exclude: [],
       },
-      resolve: {
-        alias: {
-          "react/jsx-runtime": resolve(require.resolve("react/jsx-runtime")),
-        },
-      },
-    };
+      base: configType === "DEVELOPMENT" ? "/" : "/mui-drawer/",
+    });
   },
 };
 
