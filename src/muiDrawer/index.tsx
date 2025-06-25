@@ -17,6 +17,7 @@ import {
   InformationDrawerProps,
   InputDrawerProps,
 } from "./constants/muiDrawer.interfaces";
+import { IS_SAFARI } from "./constants/muiDrawer.general";
 
 import "./muiDrawer.scss";
 
@@ -125,7 +126,7 @@ const MuiDrawer = (props: DrawerProps) => {
         transitionDuration={300}
         {...rest}
       >
-        <div ref={drawerRef} style={{ width, maxWidth }} className="h-fill">
+        <div ref={drawerRef} style={{ width, maxWidth }} className={classNames('h-fill', IS_SAFARI &&  'safari-flex-container')}>
           {title && (
             <div className="vi-drawer-title">
               <div className="d-f ai-c jc-sb">
