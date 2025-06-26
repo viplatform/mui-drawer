@@ -46,7 +46,7 @@ export default defineConfig({
     },
     lib: {
       formats: ["es"],
-      entry: resolve(__dirname, "src/muiDrawer/index.tsx"),
+      entry: resolve(__dirname, "src/index.ts"),
       name: "MuiDrawer",
       fileName: (format) => {
         return `mui-drawer.${format}.js`;
