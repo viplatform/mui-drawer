@@ -1,0 +1,48 @@
+name: Production (GCP)
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
+    name: Build and Publish Storybook
+    runs-on: ubuntu-latest
+    env:
+      CONFIG_TYPE: "PRODUCTION"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Nodejs, Install Dependencies, and Build Storybook
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+
+      - run: yarn install --immutable
+
+      - run: yarn build-storybook
+
+      - name: Checkout helmcharts for actions
+        uses: actions/checkout@v4
+        with:
+          repository: viplatform/helmcharts
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+          path: .github/helmcharts
+
+      - name: Deploy to GCP
+        uses: ./.github/helmcharts/actions/gcp-frontend-deploy
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_PROD_SA_KEY }}
+        with:
+          assets_bucket_name: prod-vi-storybook
+          assets_path: mui-drawer
+          assets_dir: storybook-static
+          cdn_assets_url_map_name: prod-vi-storybook-url-map
+          project_id: virtualinternshipsinfra
+
