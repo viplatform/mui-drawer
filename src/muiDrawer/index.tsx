@@ -82,6 +82,9 @@ const MuiDrawer = (props: DrawerProps) => {
     primaryCtaTooltipText,
     secondaryCtaTooltipText,
     tertiaryCtaTooltipText,
+    showPrimaryCtaTooltipMsg = false,
+    showSecondaryCtaTooltipMsg = false,
+    showTertiaryCtaTooltipMsg = false,
   } = actions || {};
 
   const config = DRAWER_CONFIGS[type][subtype] || DRAWER_CONFIGS[type].default;
@@ -92,6 +95,18 @@ const MuiDrawer = (props: DrawerProps) => {
     secondaryCtaTitle,
     tertiaryCtaTitle,
   ].filter(Boolean).length;
+
+  const primaryCtaTooltipTitle = isPrimaryCtaDisabled || showPrimaryCtaTooltipMsg
+    ? primaryCtaTooltipText
+    : ""
+
+  const secondaryCtaTooltipTitle = isSecondaryCtaDisabled || showSecondaryCtaTooltipMsg
+    ? secondaryCtaTooltipText
+    : ""
+
+  const tertiaryCtaTooltipTitle = isTertiaryCtaDisabled || showTertiaryCtaTooltipMsg
+    ? tertiaryCtaTooltipText
+    : ""
 
   const handleClose = () => {
     if (config?.DISMISSIBLE === "full") {
@@ -185,7 +200,7 @@ const MuiDrawer = (props: DrawerProps) => {
             >
               {tertiaryCtaTitle && (
                 <Tooltip
-                  title={isTertiaryCtaDisabled ? tertiaryCtaTooltipText : ""}
+                  title={tertiaryCtaTooltipTitle}
                   arrow
                 >
                   <LoadingButton
@@ -214,9 +229,7 @@ const MuiDrawer = (props: DrawerProps) => {
               >
                 {secondaryCtaTitle && (
                   <Tooltip
-                    title={
-                      isSecondaryCtaDisabled ? secondaryCtaTooltipText : ""
-                    }
+                    title={secondaryCtaTooltipTitle}
                     arrow
                   >
                     <LoadingButton
@@ -236,7 +249,7 @@ const MuiDrawer = (props: DrawerProps) => {
                 )}
                 {primaryCtaTitle && (
                   <Tooltip
-                    title={isPrimaryCtaDisabled ? primaryCtaTooltipText : ""}
+                    title={primaryCtaTooltipTitle}
                     arrow
                   >
                     <LoadingButton

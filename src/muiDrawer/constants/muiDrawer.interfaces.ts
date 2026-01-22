@@ -10,6 +10,9 @@ export interface IActions {
   primaryCtaTitle?: string;
   secondaryCtaTitle?: string;
   tertiaryCtaTitle?: string;
+  showPrimaryCtaTooltipMsg?: boolean;
+  showSecondaryCtaTooltipMsg?: boolean;
+  showTertiaryCtaTooltipMsg?: boolean;
   primaryCtaTooltipText?: string;
   secondaryCtaTooltipText?: string;
   tertiaryCtaTooltipText?: string;
