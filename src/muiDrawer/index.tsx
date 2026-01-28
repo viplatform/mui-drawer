@@ -67,7 +67,9 @@ const MuiDrawer = (props: DrawerProps) => {
   } = props;
   const {
     primaryCtaTitle,
+    primaryCtaClassName,
     secondaryCtaTitle,
+    secondaryCtaClassName,
     isPrimaryCtaLoading = false,
     isPrimaryCtaDisabled,
     isSecondaryCtaLoading = false,
@@ -75,6 +77,7 @@ const MuiDrawer = (props: DrawerProps) => {
     onPrimaryCtaClick = _noop,
     onSecondaryCtaClick = _noop,
     tertiaryCtaTitle,
+    tertiaryCtaClassName,
     tertiaryCtaStartIcon,
     isTertiaryCtaLoading = false,
     isTertiaryCtaDisabled,
@@ -207,7 +210,8 @@ const MuiDrawer = (props: DrawerProps) => {
                     className={classNames(
                       tertiaryCtaType === TERTIARY_CTA_TYPES.DESTRUCTIVE
                         ? "tertiary-cta-destructive"
-                        : ""
+                        : "",
+                      tertiaryCtaClassName
                     )}
                     variant="text"
                     onClick={onTertiaryCtaClick}
@@ -233,7 +237,7 @@ const MuiDrawer = (props: DrawerProps) => {
                     arrow
                   >
                     <LoadingButton
-                      className="vi-drawer-cta"
+                      className={classNames("vi-drawer-cta", secondaryCtaClassName)}
                       variant="outlined"
                       onClick={onSecondaryCtaClick}
                       loading={isSecondaryCtaLoading}
@@ -255,7 +259,8 @@ const MuiDrawer = (props: DrawerProps) => {
                     <LoadingButton
                       className={classNames(
                         "vi-drawer-cta",
-                        subtype === "destructive" ? "destructive" : ""
+                        subtype === "destructive" ? "destructive" : "",
+                        primaryCtaClassName
                       )}
                       variant="contained"
                       onClick={onPrimaryCtaClick}
