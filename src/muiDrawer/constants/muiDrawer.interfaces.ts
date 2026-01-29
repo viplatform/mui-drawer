@@ -8,8 +8,11 @@ import {
 
 export interface IActions {
   primaryCtaTitle?: string;
+  primaryCtaClassName?: string;
   secondaryCtaTitle?: string;
+  secondaryCtaClassName?: string;
   tertiaryCtaTitle?: string;
+  tertiaryCtaClassName?: string;
   showPrimaryCtaTooltipMsg?: boolean;
   showSecondaryCtaTooltipMsg?: boolean;
   showTertiaryCtaTooltipMsg?: boolean;
