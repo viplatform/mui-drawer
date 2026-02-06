@@ -70,6 +70,7 @@ const MuiDrawer = (props: DrawerProps) => {
     primaryCtaClassName,
     secondaryCtaTitle,
     secondaryCtaClassName,
+    secondaryCtaStartIcon,
     isPrimaryCtaLoading = false,
     isPrimaryCtaDisabled,
     isSecondaryCtaLoading = false,
@@ -240,6 +241,7 @@ const MuiDrawer = (props: DrawerProps) => {
                       className={classNames("vi-drawer-cta", secondaryCtaClassName)}
                       variant="outlined"
                       onClick={onSecondaryCtaClick}
+                      startIcon={secondaryCtaStartIcon}
                       loading={isSecondaryCtaLoading}
                       disabled={
                         isSecondaryCtaDisabled !== undefined
