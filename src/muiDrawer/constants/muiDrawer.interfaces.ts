@@ -11,6 +11,7 @@ export interface IActions {
   primaryCtaClassName?: string;
   secondaryCtaTitle?: string;
   secondaryCtaClassName?: string;
+  secondaryCtaStartIcon?: Element;
   tertiaryCtaTitle?: string;
   tertiaryCtaClassName?: string;
   showPrimaryCtaTooltipMsg?: boolean;
