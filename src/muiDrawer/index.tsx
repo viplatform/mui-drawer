@@ -89,6 +89,9 @@ const MuiDrawer = (props: DrawerProps) => {
     showPrimaryCtaTooltipMsg = false,
     showSecondaryCtaTooltipMsg = false,
     showTertiaryCtaTooltipMsg = false,
+    primaryCtaButtonProps,
+    secondaryCtaButtonProps,
+    tertiaryCtaButtonProps,
   } = actions || {};
 
   const config = DRAWER_CONFIGS[type][subtype] || DRAWER_CONFIGS[type].default;
@@ -223,6 +226,7 @@ const MuiDrawer = (props: DrawerProps) => {
                         ? isTertiaryCtaDisabled
                         : !!(isPrimaryCtaLoading || isSecondaryCtaLoading)
                     }
+                    {...tertiaryCtaButtonProps}
                   >
                     {tertiaryCtaTitle}
                   </LoadingButton>
@@ -248,6 +252,7 @@ const MuiDrawer = (props: DrawerProps) => {
                           ? isSecondaryCtaDisabled
                           : !!(isPrimaryCtaLoading || isTertiaryCtaLoading)
                       }
+                      {...secondaryCtaButtonProps}
                     >
                       {secondaryCtaTitle}
                     </LoadingButton>
@@ -272,6 +277,7 @@ const MuiDrawer = (props: DrawerProps) => {
                           ? isPrimaryCtaDisabled
                           : !!(isSecondaryCtaLoading || isTertiaryCtaLoading)
                       }
+                      {...primaryCtaButtonProps}
                     >
                       {primaryCtaTitle}
                     </LoadingButton>

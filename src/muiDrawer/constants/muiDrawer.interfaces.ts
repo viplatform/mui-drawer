@@ -1,4 +1,5 @@
 import { DrawerProps } from "@mui/material";
+import type { LoadingButtonProps } from "@mui/lab/LoadingButton";
 import {
   INFORMATION_SUBTYPES,
   INPUT_SUBTYPES,
@@ -30,6 +31,9 @@ export interface IActions {
   isTertiaryCtaLoading?: boolean;
   isTertiaryCtaDisabled?: boolean;
   onTertiaryCtaClick?: () => void;
+  primaryCtaButtonProps?: Partial<Omit<LoadingButtonProps, "children">>;
+  secondaryCtaButtonProps?: Partial<Omit<LoadingButtonProps, "children">>;
+  tertiaryCtaButtonProps?: Partial<Omit<LoadingButtonProps, "children">>;
 }
 export interface BaseDrawerProps extends DrawerProps {
   wrapperClassName?: string;
