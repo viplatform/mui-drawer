@@ -7,7 +7,7 @@
     "url": "https://github.com/viplatform/mui-drawer/issues"
   },
   "homepage": "https://github.com/viplatform/mui-drawer#readme",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "files": [
     "dist"
   ],
@@ -50,6 +50,11 @@
     "skip": {
       "changelog": true
     }
+  },
+  "resolutions": {
+    "glob": "^10.5.0",
+    "js-yaml": "^4.1.1",
+    "lodash": "^4.17.23"
   },
   "peerDependencies": {
     "@emotion/react": "^11.14.0",
@@ -103,7 +108,7 @@
     "storybook": "^8.6.15",
     "terser": "^5.39.2",
     "typescript": "^5.8.3",
-    "vite": "^6.4.1",
+    "vite": "^7.1.11",
     "vite-plugin-css-injected-by-js": "^3.5.2",
     "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.1.1"
