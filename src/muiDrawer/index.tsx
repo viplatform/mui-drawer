@@ -63,6 +63,7 @@ const MuiDrawer = (props: DrawerProps) => {
     showDivider = true,
     showCloseIcon = true,
     tertiaryCtaType = "default",
+    footerInfo,
     ...rest
   } = props;
   const {
@@ -96,7 +97,7 @@ const MuiDrawer = (props: DrawerProps) => {
 
   const config = DRAWER_CONFIGS[type][subtype] || DRAWER_CONFIGS[type].default;
   const showFooter =
-    showActions && (primaryCtaTitle || secondaryCtaTitle || tertiaryCtaTitle);
+    showActions && (primaryCtaTitle || secondaryCtaTitle || tertiaryCtaTitle || footerInfo);
   const footerCtaCount = [
     primaryCtaTitle,
     secondaryCtaTitle,
@@ -236,6 +237,11 @@ const MuiDrawer = (props: DrawerProps) => {
                 style={{ width: actionsMaxWidth }}
                 className="vi-drawer-action-ctas"
               >
+                {footerInfo && (
+                  <Typography variant='regularLabelS' className="vi-drawer-footer-info">
+                    {footerInfo}
+                  </Typography>
+                )}
                 {secondaryCtaTitle && (
                   <Tooltip
                     title={secondaryCtaTooltipTitle}
