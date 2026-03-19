@@ -50,6 +50,7 @@ export interface BaseDrawerProps extends DrawerProps {
   showDivider?: boolean;
   width?: string;
   maxWidth?: string;
+  footerInfo?: string | React.ReactNode;
 }
 
 export interface InformationDrawerProps extends BaseDrawerProps {
