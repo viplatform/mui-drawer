@@ -7,7 +7,7 @@
     "url": "https://github.com/viplatform/mui-drawer/issues"
   },
   "homepage": "https://github.com/viplatform/mui-drawer#readme",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "files": [
     "dist"
   ],
@@ -58,6 +58,7 @@
     "lodash": "^4.17.23",
     "minimatch": "^10.2.3",
     "rollup": "^4.59.0",
+    "flatted": ">=3.4.2",
     "vite": "7.1.11"
   },
   "peerDependencies": {
