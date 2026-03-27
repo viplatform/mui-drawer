@@ -59,6 +59,8 @@
     "minimatch": "^10.2.3",
     "rollup": "^4.59.0",
     "flatted": ">=3.4.2",
+    "handlebars": ">=4.7.9",
+    "picomatch": ">=4.0.4",
     "vite": "7.1.11"
   },
   "peerDependencies": {
