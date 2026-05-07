@@ -7,7 +7,7 @@
     "url": "https://github.com/viplatform/mui-drawer/issues"
   },
   "homepage": "https://github.com/viplatform/mui-drawer#readme",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "files": [
     "dist"
   ],
@@ -62,7 +62,8 @@
     "handlebars": ">=4.7.9",
     "picomatch": ">=4.0.4",
     "vite": "^7.3.2",
-    "uuid": "^14.0.0"
+    "uuid": "^14.0.0",
+    "postcss": "^8.5.10"
   },
   "peerDependencies": {
     "@emotion/react": "^11.14.0",
