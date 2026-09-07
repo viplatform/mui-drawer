@@ -41,7 +41,8 @@
     "release": "standard-version",
     "coverage": "vitest run --coverage",
     "prepare": "husky",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "test:security-deps": "node scripts/verify-security-dependencies.mjs"
   },
   "standard-version": {
     "scripts": {
@@ -71,7 +72,8 @@
     "@eslint/plugin-kit": "^0.3.5",
     "@microsoft/api-extractor": "^7.58.12",
     "yaml": "^1.10.3",
-    "ws": "^8.21.0"
+    "ws": "^8.21.0",
+    "browserslist": "4.28.7"
   },
   "peerDependencies": {
     "@emotion/react": "^11.14.0",
@@ -129,5 +131,8 @@
     "vite-plugin-css-injected-by-js": "^3.5.2",
     "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.2.6"
+  },
+  "overrides": {
+    "browserslist": "4.28.7"
   }
 }
